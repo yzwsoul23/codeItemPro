@@ -222,14 +222,14 @@
                     seqNo = i; // 如果没有序号字段，自动从1开始排序
                 }
                 
-                const barcode = row[columnIndex['条码']] || '';
-                // 提取条码后四位
+                const barcode = (row[columnIndex['条码']] || '').replace(/\./g, '');
+                const productName = (row[columnIndex['商品名称']] || '').replace(/\./g, '');
                 const lastFourDigits = barcode.length >= 4 ? barcode.slice(-4) : barcode;
                 
                 const orderedData = [
 					`'${barcode}`,
                     seqNo,
-                    row[columnIndex['商品名称']] || '',
+                    productName,
                     `'${lastFourDigits}`,
                     row[columnIndex['采购数量']] || ''
                 ];
