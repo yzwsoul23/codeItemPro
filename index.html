@@ -32,10 +32,6 @@
             padding: 10px;
             text-align: left;
         }
-        th {
-            background-color: #FB600;
-            color: white;
-        }
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
@@ -231,10 +227,10 @@
                 const lastFourDigits = barcode.length >= 4 ? barcode.slice(-4) : barcode;
                 
                 const orderedData = [
-					barcode,
+					`'${barcode}`,
                     seqNo,
                     row[columnIndex['商品名称']] || '',
-                    lastFourDigits,
+                    `'${lastFourDigits}`,
                     row[columnIndex['采购数量']] || ''
                 ];
                 
